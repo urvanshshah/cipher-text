@@ -1,0 +1,28 @@
+alphabet = "abcdefghijklmnopqrstuvwxyz"
+
+plaintext = input("enter palintext : ")
+key = 21
+
+ciphertext = " "
+
+for i in plaintext:
+    if alphabet.find(i) == -1:
+        ciphertext += ' '
+    else:
+        ciphertext += (alphabet[(alphabet.find(i) + key)%26])
+
+print("the ciphertext is {}".format(ciphertext))
+
+decrypt = ''
+
+for j in range(26):
+    for i in ciphertext:
+
+        if alphabet.find(i) == -1:
+            decrypt += ' '
+
+        else:
+            decrypt += alphabet[(alphabet.find(i) - j)%26]
+    
+    print("{}---->{}".format(decrypt,j))
+    decrypt = ''
